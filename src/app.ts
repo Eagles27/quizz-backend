@@ -8,10 +8,11 @@ const instance: FastifyInstance = fastify({
   logger: loggerConfig[envConfig.NODE_ENV],
 })
 
-async function start(): Promise<void> {
+function start(): void {
   try {
-    const port = envConfig.PORT || 5000
-    const host = '0.0.0.0'
+    const port = envConfig.PORT
+    const host = '127.0.0.1'
+
     instance.listen({ port, host })
     instance.register(fp(appConfigPlugin), {})
   } catch (err) {

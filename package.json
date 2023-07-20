@@ -36,6 +36,7 @@
     "@fastify/sensible": "^5.2.0",
     "@fastify/swagger": "^8.8.0",
     "@fastify/swagger-ui": "^1.9.2",
+    "@notionhq/client": "^2.2.7",
     "dotenv": "^16.3.1",
     "fastify": "^4.19.2",
     "fastify-plugin": "^4.5.0",
