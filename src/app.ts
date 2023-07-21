@@ -11,7 +11,7 @@ const instance: FastifyInstance = fastify({
 function start(): void {
   try {
     const port = envConfig.PORT
-    const host = '127.0.0.1'
+    const host = '0.0.0.0'
 
     instance.listen({ port, host })
     instance.register(fp(appConfigPlugin), {})
