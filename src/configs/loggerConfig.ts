@@ -11,7 +11,7 @@ const defaultPinoConfig = {
 const loggerConfig = {
   local: defaultPinoConfig,
   dev: defaultPinoConfig,
-  prod: true,
+  production: true,
   test: false,
 }
 
