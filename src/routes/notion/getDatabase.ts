@@ -1,8 +1,9 @@
 import getDatabaseHandler from '@/handlers/getDatabaseHandler'
-import { NOTION_DATABASE_LIST } from '@/schema/notionDabase'
+import { NOTION_DATABASE_BODY, NOTION_DATABASE_LIST } from '@/schema/notionDabase'
 import { FastifyPluginAsync, FastifySchema } from 'fastify'
 
 const schema: FastifySchema = {
+  body: NOTION_DATABASE_BODY,
   response: {
     200: NOTION_DATABASE_LIST,
   },
@@ -10,6 +11,6 @@ const schema: FastifySchema = {
 }
 
 const getDatabase: FastifyPluginAsync = async (fastify): Promise<void> => {
-  fastify.get('/database', { schema }, getDatabaseHandler)
+  fastify.post('/database', { schema }, getDatabaseHandler)
 }
 export default getDatabase

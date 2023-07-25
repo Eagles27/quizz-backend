@@ -11,18 +11,18 @@ class NotionService {
     auth: envConfig.NOTION_KEY,
   })
 
-  public static async getDatabase(): Promise<TNotionDatabaseList> {
+  public static async getDatabase(id: string): Promise<TNotionDatabaseList> {
     try {
       const response = await this.client.databases.query({
-        database_id: envConfig.DATABASE_ID,
+        database_id: id,
       })
 
       const results = response.results.filter((page): page is PageObjectResponse => 'properties' in page)
 
       const words: TNotionDatabaseList = results.map((page: any) => ({
         id: page.id,
-        frenchWord: page.properties.Französisch.title[0].text.content.trim(),
-        deutshWord: page.properties.Deutsch.rich_text[0].text.content.trim(),
+        frenchWord: page.properties.Franzosisch.rich_text[0].text.content.trim(),
+        deutshWord: page.properties.Deutsch.title[0].text.content.trim(),
       }))
 
       return words
