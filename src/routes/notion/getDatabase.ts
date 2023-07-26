@@ -1,11 +1,11 @@
 import getDatabaseHandler from '@/handlers/getDatabaseHandler'
-import { NOTION_DATABASE_BODY, NOTION_DATABASE_LIST } from '@/schema/notionDabase'
+import { API_RESPONSE, NOTION_DATABASE_BODY } from '@/schema/notionDabase'
 import { FastifyPluginAsync, FastifySchema } from 'fastify'
 
 const schema: FastifySchema = {
   body: NOTION_DATABASE_BODY,
   response: {
-    200: NOTION_DATABASE_LIST,
+    200: API_RESPONSE,
   },
   tags: ['Notion'],
 }

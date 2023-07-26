@@ -11,7 +11,7 @@ const getDatabaseHandler = async (req: TRequest, res: FastifyReply) => {
   try {
     const response = await NotionService.getDatabase(id)
     const finalResponse = {
-      id,
+      databaseId: id,
       value: response,
     }
     res.code(200).send(finalResponse)
